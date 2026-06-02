@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Esha Bargate brand palette — black · gold · cream */
+  --background: #0d0b08; /* near-black cinematic backdrop */
+  --foreground: #f2ede4; /* off-white / ivory primary text */
+  --accent: #c9a24b; /* warm champagne gold (signature accent) */
+  --accent-strong: #d4af6a; /* lighter gold for highlights */
+  --muted: #a0a0a0; /* muted grey secondary text */
+  --card: #14110c; /* slightly raised dark panel */
+  --border: #3a2f1c; /* dim gold-brown card borders */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --font-sans: var(--font-rubik);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

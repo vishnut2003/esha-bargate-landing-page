@@ -15,16 +15,38 @@ export default function Booking() {
         Available for keynotes, panels, fireside chats, juries, and guest
         appearances — worldwide, in person or virtual.
       </p>
-      <p className="mt-10 text-lg tracking-wide">
-        <a
-          href="mailto:hello@eshabargate.com"
-          className="text-accent transition-opacity hover:opacity-80"
-        >
-          hello@eshabargate.com
-        </a>
-        <span className="mx-3 text-muted">·</span>
-        <span className="text-muted">Esha Bargate Productions LLC</span>
-      </p>
+      <div className="mt-10 flex flex-col items-center gap-4 text-lg tracking-wide">
+        <p>
+          <span className="text-muted">AIVR MPG</span>
+          <span className="mx-3 text-muted">·</span>
+          <a
+            href="mailto:hello@aivrmotionpicture.org"
+            className="text-accent transition-opacity hover:opacity-80"
+          >
+            hello@aivrmotionpicture.org
+          </a>
+        </p>
+        <p>
+          <span className="text-muted">Esha Bargate Productions LLC</span>
+          <span className="mx-3 text-muted">·</span>
+          <a
+            href="mailto:contact@eshabargateproductions.com"
+            className="text-accent transition-opacity hover:opacity-80"
+          >
+            contact@eshabargateproductions.com
+          </a>
+        </p>
+        <p>
+          <span className="text-muted">WhatsApp</span>
+          <span className="mx-3 text-muted">·</span>
+          <a
+            href="https://wa.me/15109532966"
+            className="text-accent transition-opacity hover:opacity-80"
+          >
+            +1 510-953-2966
+          </a>
+        </p>
+      </div>
     </section>
   );
 }

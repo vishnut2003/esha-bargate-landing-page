@@ -37,7 +37,7 @@ export default function About() {
             </p>
             <p>
               Recognized as a Business Visionary (SB100) and serving on the
-              2026 Telly Awards Executive Judging Council, Esha's career
+              2026 Telly Awards Executive Judging Council, Esha&rsquo;s career
               spans film production, media innovation, international partnerships,
               and creative leadership—shaping conversations where storytelling meets
               the future.

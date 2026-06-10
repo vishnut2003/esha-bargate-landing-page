@@ -17,7 +17,7 @@ export default function Booking() {
       </p>
       <div className="mt-10 flex flex-col items-center gap-4 text-lg tracking-wide">
         <p>
-          <span className="text-muted">AIVR MPG</span>
+          <span className="text-muted">Contact Esha Bargate for AIVR MPG at</span>
           <span className="mx-3 text-muted">·</span>
           <a
             href="mailto:hello@aivrmotionpicture.org"
@@ -27,7 +27,7 @@ export default function Booking() {
           </a>
         </p>
         <p>
-          <span className="text-muted">Esha Bargate Productions LLC</span>
+          <span className="text-muted">For Esha Bargate Productions LLC at</span>
           <span className="mx-3 text-muted">·</span>
           <a
             href="mailto:contact@eshabargateproductions.com"

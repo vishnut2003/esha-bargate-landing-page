@@ -33,7 +33,7 @@ export default function TrackRecord() {
     <Section>
       <Eyebrow>Track Record</Eyebrow>
       <h2 className="mt-6 text-4xl font-light sm:text-5xl">
-        Leadership & achievements
+        Leadership and Achievement
       </h2>
       <div className="mt-14 border-l border-border pl-8">
         {MILESTONES.map((item) => (

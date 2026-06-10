@@ -13,10 +13,6 @@ const SIGNATURE_WORK = [
     title: "Pitched to Major U.S. Streamers",
     body: "Independently pitched original projects to streaming services including Amazon Studios.",
   },
-  {
-    title: "AI Meets Cinema™",
-    body: "Produces the original interview and education series featuring leaders and innovators in media.",
-  },
 ];
 
 /** 08 — The Studio */

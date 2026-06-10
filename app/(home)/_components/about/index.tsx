@@ -29,18 +29,18 @@ export default function About() {
           </h2>
           <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted">
             <p>
-              Esha Bargate is a filmmaker and creative entrepreneur working where
-              cinema meets the future. She co-produced the internationally
-              distributed short film{" "}
-              <span className="italic text-accent">“Sarhadein,”</span> placing it
-              on Apple TV and Google TV India, and created the original series{" "}
-              <span className="italic text-accent">AI Meets Cinema™</span>.
+              Esha Bargate is a Media and Creative entrepreneur building bridges
+              between cinema, technology, and global storytelling. From producing
+              internationally distributed films to launching industry initiatives
+              such as AI Meets Cinema™, her work explores how emerging technologies
+              can expand creative opportunities for filmmakers worldwide.
             </p>
             <p>
-              She sits on the 2026 Telly Awards Executive Judging Council, was
-              named a Business Visionary (SB100), and edited human-rights content
-              for the United Nations — a body of work spanning festivals, studios,
-              and the world stage.
+              Recognized as a Business Visionary (SB100) and serving on the
+              2026 Telly Awards Executive Judging Council, Esha's career
+              spans film production, media innovation, international partnerships,
+              and creative leadership—shaping conversations where storytelling meets
+              the future.
             </p>
           </div>
         </div>

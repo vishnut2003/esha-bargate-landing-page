@@ -10,7 +10,7 @@ export default function Hero() {
         Esha <span className="italic text-accent">Bargate</span>
       </h1>
       <p className="mt-8 text-lg tracking-wide text-muted sm:text-xl">
-        Filmmaker · Co-Producer · Telly Awards Judge · Founder
+        Media Entrepreneur · Co-Producer · Telly Awards Judge · Founder
       </p>
       <span className="mt-8 block h-px w-24 bg-accent/60" />
       <p className="mt-8 max-w-xl text-lg italic text-accent/90">

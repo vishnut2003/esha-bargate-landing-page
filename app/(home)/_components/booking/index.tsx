@@ -1,51 +1,116 @@
 import { CornerFrame, Eyebrow } from "../shared";
 
+const CONTACTS = [
+  {
+    label: "Esha Bargate for AIVR MPG",
+    value: "hello@aivrmotionpicture.org",
+    href: "mailto:hello@aivrmotionpicture.org",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-5 w-5"
+      >
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </svg>
+    ),
+  },
+  {
+    label: "Esha Bargate Productions LLC",
+    value: "contact@eshabargateproductions.com",
+    href: "mailto:contact@eshabargateproductions.com",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-5 w-5"
+      >
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </svg>
+    ),
+  },
+  {
+    label: "WhatsApp",
+    value: "+1 510-953-2966",
+    href: "https://wa.me/15109532966",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-5 w-5"
+      >
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+      </svg>
+    ),
+  },
+];
+
 /** 11 — Booking Inquiry */
 export default function Booking() {
   return (
-    <section className="relative flex w-full flex-col items-center justify-center border-t border-border/40 px-6 py-36 text-center">
+    <section className="relative flex w-full flex-col items-center justify-center overflow-hidden border-t border-border/40 px-6 py-36 text-center">
       <CornerFrame />
+
+      {/* Cinematic gold glow backdrop */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-168 w-2xl -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[120px]"
+      />
+
       <Eyebrow>Booking Inquiry</Eyebrow>
       <h2 className="mt-10 text-5xl font-light sm:text-7xl">
         Bring Esha to your
         <br />
         <span className="italic text-accent">stage, anywhere.</span>
       </h2>
-      <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted">
+
+      {/* Gold divider flourish */}
+      <div
+        aria-hidden
+        className="mt-10 flex items-center justify-center gap-3 text-accent"
+      >
+        <span className="h-px w-12 bg-linear-to-r from-transparent to-accent/60" />
+        <span className="text-sm">✦</span>
+        <span className="h-px w-12 bg-linear-to-l from-transparent to-accent/60" />
+      </div>
+
+      <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
         Available for keynotes, panels, fireside chats, juries, and guest
         appearances — worldwide, in person or virtual.
       </p>
-      <div className="mt-10 flex flex-col items-center gap-4 text-lg tracking-wide">
-        <p>
-          <span className="text-muted">Contact Esha Bargate for AIVR MPG at</span>
-          <span className="mx-3 text-muted">·</span>
+
+      <div className="mt-14 grid w-full max-w-5xl gap-5 sm:grid-cols-3">
+        {CONTACTS.map((c) => (
           <a
-            href="mailto:hello@aivrmotionpicture.org"
-            className="text-accent transition-opacity hover:opacity-80"
+            key={c.value}
+            href={c.href}
+            className="group relative flex flex-col items-center gap-3 rounded-sm border border-border bg-card/40 p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:bg-card/70"
           >
-            hello@aivrmotionpicture.org
+            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-accent/40 text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10">
+              {c.icon}
+            </span>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted">
+              {c.label}
+            </span>
+            <span className="wrap-anywhere text-[0.8125rem] text-accent transition-opacity group-hover:opacity-90">
+              {c.value}
+            </span>
           </a>
-        </p>
-        <p>
-          <span className="text-muted">For Esha Bargate Productions LLC at</span>
-          <span className="mx-3 text-muted">·</span>
-          <a
-            href="mailto:contact@eshabargateproductions.com"
-            className="text-accent transition-opacity hover:opacity-80"
-          >
-            contact@eshabargateproductions.com
-          </a>
-        </p>
-        <p>
-          <span className="text-muted">WhatsApp</span>
-          <span className="mx-3 text-muted">·</span>
-          <a
-            href="https://wa.me/15109532966"
-            className="text-accent transition-opacity hover:opacity-80"
-          >
-            +1 510-953-2966
-          </a>
-        </p>
+        ))}
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { Eyebrow, Section } from "../shared";
+import { Reveal, Stagger, StaggerItem } from "../shared/motion";
 
 const SIGNATURE_WORK = [
   {
@@ -20,7 +21,7 @@ export default function TheStudio() {
   return (
     <Section>
       <div className="grid gap-12 lg:grid-cols-2">
-        <div className="lg:border-r lg:border-border lg:pr-12">
+        <Reveal className="lg:border-r lg:border-border lg:pr-12">
           <Eyebrow>The Studio</Eyebrow>
           <h2 className="mt-6 text-4xl font-light leading-tight sm:text-5xl">
             Esha Bargate{" "}
@@ -34,18 +35,23 @@ export default function TheStudio() {
           <p className="mt-8 italic text-accent/90">
             Founded & led by Esha Bargate
           </p>
-        </div>
+        </Reveal>
 
         <div>
-          <h3 className="text-2xl font-light">Signature Work</h3>
-          <div className="mt-8 space-y-8">
+          <Reveal>
+            <h3 className="text-2xl font-light">Signature Work</h3>
+          </Reveal>
+          <Stagger className="mt-8 space-y-8">
             {SIGNATURE_WORK.map((item) => (
-              <div key={item.title} className="border-l-2 border-accent pl-5">
+              <StaggerItem
+                key={item.title}
+                className="border-l-2 border-accent pl-5 transition-colors duration-300 hover:border-accent-strong"
+              >
                 <h4 className="font-semibold text-accent">{item.title}</h4>
                 <p className="mt-2 leading-relaxed text-muted">{item.body}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </div>
     </Section>

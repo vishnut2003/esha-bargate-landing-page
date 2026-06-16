@@ -1,4 +1,5 @@
 import { CornerFrame, Eyebrow } from "../shared";
+import { AmbientGlow, Reveal, Stagger, StaggerItem } from "../shared/motion";
 
 const CONTACTS = [
   {
@@ -66,52 +67,54 @@ export default function Booking() {
       <CornerFrame />
 
       {/* Cinematic gold glow backdrop */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-168 w-2xl -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[120px]"
-      />
+      <AmbientGlow className="h-168 w-2xl" />
 
-      <Eyebrow>Booking Inquiry</Eyebrow>
-      <h2 className="mt-10 text-5xl font-light sm:text-7xl">
-        Bring Esha to your
-        <br />
-        <span className="italic text-accent">stage, anywhere.</span>
-      </h2>
+      <Reveal>
+        <Eyebrow>Booking Inquiry</Eyebrow>
+        <h2 className="mt-10 text-5xl font-light sm:text-7xl">
+          Bring Esha to your
+          <br />
+          <span className="italic text-accent">stage, anywhere.</span>
+        </h2>
+      </Reveal>
 
       {/* Gold divider flourish */}
-      <div
-        aria-hidden
+      <Reveal
+        delay={0.15}
         className="mt-10 flex items-center justify-center gap-3 text-accent"
       >
-        <span className="h-px w-12 bg-linear-to-r from-transparent to-accent/60" />
-        <span className="text-sm">✦</span>
-        <span className="h-px w-12 bg-linear-to-l from-transparent to-accent/60" />
-      </div>
+        <span aria-hidden className="h-px w-12 bg-linear-to-r from-transparent to-accent/60" />
+        <span aria-hidden className="text-sm">✦</span>
+        <span aria-hidden className="h-px w-12 bg-linear-to-l from-transparent to-accent/60" />
+      </Reveal>
 
-      <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
-        Available for keynotes, panels, fireside chats, juries, and guest
-        appearances — worldwide, in person or virtual.
-      </p>
+      <Reveal delay={0.2}>
+        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+          Available for keynotes, panels, fireside chats, juries, and guest
+          appearances — worldwide, in person or virtual.
+        </p>
+      </Reveal>
 
-      <div className="mt-14 grid w-full max-w-5xl gap-5 sm:grid-cols-3">
+      <Stagger className="mt-14 grid w-full max-w-5xl gap-5 sm:grid-cols-3">
         {CONTACTS.map((c) => (
-          <a
-            key={c.value}
-            href={c.href}
-            className="group relative flex flex-col items-center gap-3 rounded-sm border border-border bg-card/40 p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:bg-card/70"
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-accent/40 text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10">
-              {c.icon}
-            </span>
-            <span className="text-xs uppercase tracking-[0.2em] text-muted">
-              {c.label}
-            </span>
-            <span className="wrap-anywhere text-[0.8125rem] text-accent transition-opacity group-hover:opacity-90">
-              {c.value}
-            </span>
-          </a>
+          <StaggerItem key={c.value}>
+            <a
+              href={c.href}
+              className="group relative flex h-full flex-col items-center gap-3 rounded-sm border border-border bg-card/40 p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:bg-card/70"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-accent/40 text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10">
+                {c.icon}
+              </span>
+              <span className="text-xs uppercase tracking-[0.2em] text-muted">
+                {c.label}
+              </span>
+              <span className="wrap-anywhere text-[0.8125rem] text-accent transition-opacity group-hover:opacity-90">
+                {c.value}
+              </span>
+            </a>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </section>
   );
 }

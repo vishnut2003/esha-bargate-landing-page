@@ -1,4 +1,5 @@
 import { Eyebrow, Section } from "../shared";
+import { Reveal, Stagger, StaggerItem } from "../shared/motion";
 
 const TALKS = [
   {
@@ -27,24 +28,26 @@ const TALKS = [
 export default function SignatureTalks() {
   return (
     <Section>
-      <Eyebrow>Signature Talks</Eyebrow>
-      <h2 className="mt-6 text-4xl font-light sm:text-5xl">
-        What Esha speaks about
-      </h2>
-      <div className="mt-14 grid gap-6 lg:grid-cols-2">
+      <Reveal>
+        <Eyebrow>Signature Talks</Eyebrow>
+        <h2 className="mt-6 text-4xl font-light sm:text-5xl">
+          What Esha speaks about
+        </h2>
+      </Reveal>
+      <Stagger className="mt-14 grid gap-6 lg:grid-cols-2">
         {TALKS.map((talk) => (
-          <div
+          <StaggerItem
             key={talk.n}
-            className="border border-border border-l-2 border-l-accent bg-card/40 p-8"
+            className="border border-border border-l-2 border-l-accent bg-card/40 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-l-accent-strong hover:bg-card/70"
           >
             <p className="text-sm font-semibold tracking-[0.2em] text-accent">
               {talk.n}
             </p>
             <h3 className="mt-4 text-2xl font-normal">{talk.title}</h3>
             <p className="mt-4 leading-relaxed text-muted">{talk.body}</p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 }

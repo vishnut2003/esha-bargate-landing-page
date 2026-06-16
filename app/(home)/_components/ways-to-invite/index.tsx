@@ -1,4 +1,5 @@
 import { Eyebrow, Section } from "../shared";
+import { Reveal, Stagger, StaggerItem } from "../shared/motion";
 
 const ENGAGEMENTS = [
   {
@@ -27,19 +28,26 @@ const ENGAGEMENTS = [
 export default function WaysToInvite() {
   return (
     <Section>
-      <Eyebrow>Ways to Invite Esha</Eyebrow>
-      <h2 className="mt-6 text-4xl font-light sm:text-5xl">
-        Engagements around the world
-      </h2>
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Reveal>
+        <Eyebrow>Ways to Invite Esha</Eyebrow>
+        <h2 className="mt-6 text-4xl font-light sm:text-5xl">
+          Engagements around the world
+        </h2>
+      </Reveal>
+      <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {ENGAGEMENTS.map((item) => (
-          <div key={item.title} className="border border-border bg-card/40 p-8">
-            <span className="text-xl text-accent">✦</span>
+          <StaggerItem
+            key={item.title}
+            className="group border border-border bg-card/40 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-card/70"
+          >
+            <span className="inline-block text-xl text-accent transition-transform duration-300 group-hover:scale-125">
+              ✦
+            </span>
             <h3 className="mt-5 text-xl font-normal">{item.title}</h3>
             <p className="mt-4 leading-relaxed text-muted">{item.body}</p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 }

@@ -1,4 +1,5 @@
 import { Eyebrow, Section } from "../shared";
+import { Reveal, Stagger, StaggerItem } from "../shared/motion";
 
 const MILESTONES = [
   {
@@ -24,7 +25,7 @@ export default function TheGuild() {
   return (
     <Section>
       <div className="grid gap-12 lg:grid-cols-2">
-        <div className="lg:border-r lg:border-border lg:pr-12">
+        <Reveal className="lg:border-r lg:border-border lg:pr-12">
           <Eyebrow>The Guild</Eyebrow>
           <h2 className="mt-6 text-4xl font-light leading-tight sm:text-5xl">
             AI/VR Motion{" "}
@@ -38,18 +39,23 @@ export default function TheGuild() {
           <p className="mt-8 italic text-accent/90">
             Founded & led by Esha Bargate · President & Director
           </p>
-        </div>
+        </Reveal>
 
         <div>
-          <h3 className="text-2xl font-light">Milestones</h3>
-          <div className="mt-8 space-y-8">
+          <Reveal>
+            <h3 className="text-2xl font-light">Milestones</h3>
+          </Reveal>
+          <Stagger className="mt-8 space-y-8">
             {MILESTONES.map((item) => (
-              <div key={item.title} className="border-l-2 border-accent pl-5">
+              <StaggerItem
+                key={item.title}
+                className="border-l-2 border-accent pl-5 transition-colors duration-300 hover:border-accent-strong"
+              >
                 <h4 className="font-semibold text-accent">{item.title}</h4>
                 <p className="mt-2 leading-relaxed text-muted">{item.body}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </div>
     </Section>

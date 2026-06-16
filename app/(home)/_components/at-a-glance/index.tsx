@@ -1,4 +1,5 @@
 import { Eyebrow, Section } from "../shared";
+import { Reveal, Stagger, StaggerItem } from "../shared/motion";
 
 const STATS = [
   { stat: "6", label: "Continents Connected" },
@@ -11,21 +12,25 @@ const STATS = [
 export default function AtAGlance() {
   return (
     <Section>
-      <Eyebrow>At a Glance</Eyebrow>
-      <h2 className="mt-6 text-4xl font-light sm:text-5xl">A career of firsts</h2>
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <Reveal>
+        <Eyebrow>At a Glance</Eyebrow>
+        <h2 className="mt-6 text-4xl font-light sm:text-5xl">
+          A career of firsts
+        </h2>
+      </Reveal>
+      <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {STATS.map((item) => (
-          <div
+          <StaggerItem
             key={item.label}
-            className="border border-border bg-card/40 px-6 py-12 text-center"
+            className="border border-border bg-card/40 px-6 py-12 text-center transition-colors duration-300 hover:border-accent/50 hover:bg-card/70"
           >
             <p className="text-5xl font-light text-accent">{item.stat}</p>
             <p className="mt-6 text-xs uppercase tracking-[0.2em] text-muted">
               {item.label}
             </p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 }

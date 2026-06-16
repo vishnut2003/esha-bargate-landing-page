@@ -1,4 +1,5 @@
 import { Eyebrow, Section } from "../shared";
+import { Reveal, Stagger, StaggerItem } from "../shared/motion";
 
 const ITEMS = [
   {
@@ -22,19 +23,26 @@ const ITEMS = [
 export default function Recognition() {
   return (
     <Section>
-      <Eyebrow>Recognition</Eyebrow>
-      <h2 className="mt-6 text-4xl font-light sm:text-5xl">Featured & awarded</h2>
-      <div className="mt-14 grid gap-6 lg:grid-cols-3">
+      <Reveal>
+        <Eyebrow>Recognition</Eyebrow>
+        <h2 className="mt-6 text-4xl font-light sm:text-5xl">
+          Featured & awarded
+        </h2>
+      </Reveal>
+      <Stagger className="mt-14 grid gap-6 lg:grid-cols-3">
         {ITEMS.map((item) => (
-          <div key={item.title} className="border border-border bg-card/40 p-8">
+          <StaggerItem
+            key={item.title}
+            className="border border-border bg-card/40 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-card/70"
+          >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
               {item.tag}
             </p>
             <h3 className="mt-5 text-2xl font-normal">{item.title}</h3>
             <p className="mt-4 leading-relaxed text-muted">{item.body}</p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 }

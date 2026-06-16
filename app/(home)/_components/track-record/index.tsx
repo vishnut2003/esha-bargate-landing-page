@@ -1,4 +1,5 @@
 import { Eyebrow, Section } from "../shared";
+import { Reveal, Stagger, StaggerItem } from "../shared/motion";
 
 const MILESTONES = [
   {
@@ -31,21 +32,23 @@ const MILESTONES = [
 export default function TrackRecord() {
   return (
     <Section>
-      <Eyebrow>Track Record</Eyebrow>
-      <h2 className="mt-6 text-4xl font-light sm:text-5xl">
-        Leadership and Achievement
-      </h2>
-      <div className="mt-14 border-l border-border pl-8">
+      <Reveal>
+        <Eyebrow>Track Record</Eyebrow>
+        <h2 className="mt-6 text-4xl font-light sm:text-5xl">
+          Leadership and Achievement
+        </h2>
+      </Reveal>
+      <Stagger className="mt-14 border-l border-border pl-8">
         {MILESTONES.map((item) => (
-          <div key={item.title} className="relative pb-12 last:pb-0">
+          <StaggerItem key={item.title} className="relative pb-12 last:pb-0">
             <span className="absolute -left-[41px] top-1.5 h-3.5 w-3.5 rounded-full border border-accent bg-background" />
             <h3 className="text-lg font-semibold text-accent">{item.title}</h3>
             <p className="mt-2 max-w-2xl leading-relaxed text-muted">
               {item.body}
             </p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 }

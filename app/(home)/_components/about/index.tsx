@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Eyebrow, Section } from "../shared";
+import { Reveal } from "../shared/motion";
 import portrait from "./assets/esha-portrait.jpeg";
 
 /** 02 — About Esha */
@@ -7,7 +8,7 @@ export default function About() {
   return (
     <Section>
       <div className="grid items-center gap-12 lg:grid-cols-2">
-        <div className="relative mx-auto aspect-4/5 w-full max-w-sm">
+        <Reveal className="relative mx-auto aspect-4/5 w-full max-w-sm">
           <span className="absolute -left-3 -top-3 z-10 h-10 w-10 border-l border-t border-accent/70" />
           <span className="absolute -bottom-3 -right-3 z-10 h-10 w-10 border-b border-r border-accent/70" />
           <Image
@@ -18,9 +19,9 @@ export default function About() {
             className="h-full w-full object-cover"
             priority
           />
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal delay={0.15}>
           <Eyebrow>About Esha</Eyebrow>
           <h2 className="mt-6 text-4xl font-light leading-tight sm:text-5xl">
             One storyteller,
@@ -43,7 +44,7 @@ export default function About() {
               the future.
             </p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </Section>
   );

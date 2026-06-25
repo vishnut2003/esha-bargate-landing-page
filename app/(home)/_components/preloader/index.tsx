@@ -104,7 +104,7 @@ export default function Preloader() {
             className="relative z-10 flex flex-col items-center px-6 text-center"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-              Esha Bargate Productions
+              Now Loading
             </p>
 
             <h1 className="mt-6 text-5xl font-light tracking-tight sm:text-7xl">

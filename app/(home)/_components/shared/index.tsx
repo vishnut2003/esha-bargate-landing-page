@@ -26,13 +26,16 @@ export function CornerFrame() {
 export function Section({
   children,
   className = "",
+  id,
 }: {
   children: ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
     <section
-      className={`relative w-full border-t border-border/40 px-6 py-24 sm:px-12 lg:px-20 ${className}`}
+      id={id}
+      className={`relative w-full scroll-mt-20 border-t border-border/40 px-6 py-24 sm:px-12 lg:px-20 ${className}`}
     >
       <div className="mx-auto w-full max-w-6xl">{children}</div>
     </section>

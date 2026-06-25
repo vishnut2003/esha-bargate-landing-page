@@ -63,7 +63,10 @@ const CONTACTS = [
 /** 11 — Booking Inquiry */
 export default function Booking() {
   return (
-    <section className="relative flex w-full flex-col items-center justify-center overflow-hidden border-t border-border/40 px-6 py-36 text-center">
+    <section
+      id="booking"
+      className="relative flex w-full scroll-mt-20 flex-col items-center justify-center overflow-hidden border-t border-border/40 px-6 py-36 text-center"
+    >
       <CornerFrame />
 
       {/* Cinematic gold glow backdrop */}

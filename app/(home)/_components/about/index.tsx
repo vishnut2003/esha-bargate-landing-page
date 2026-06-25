@@ -6,7 +6,7 @@ import portrait from "./assets/esha-portrait.jpeg";
 /** 02 — About Esha */
 export default function About() {
   return (
-    <Section>
+    <Section id="about">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <Reveal className="relative mx-auto aspect-4/5 w-full max-w-sm">
           <span className="absolute -left-3 -top-3 z-10 h-10 w-10 border-l border-t border-accent/70" />

@@ -1,6 +1,13 @@
 import Image from "next/image";
 import { Eyebrow, Section } from "../shared";
-import { AmbientGlow, Reveal } from "../shared/motion";
+import {
+  AmbientGlow,
+  FloatingMotes,
+  Float,
+  Reveal,
+  ShimmerText,
+  TiltCard,
+} from "../shared/motion";
 import portrait from "./assets/esha-portrait.jpeg";
 
 /** Focus areas highlighted beneath the bio. */
@@ -15,11 +22,12 @@ export default function About() {
   return (
     <Section id="about" className="overflow-hidden">
       <AmbientGlow className="h-120 w-120" />
+      <FloatingMotes count={6} />
 
       <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
         {/* Portrait — layered gallery frame */}
         <Reveal className="relative mx-auto w-full max-w-sm">
-          <div className="group relative aspect-4/5 w-full">
+          <TiltCard className="group aspect-4/5 w-full" max={6}>
             {/* Soft glow halo behind the frame */}
             <div
               aria-hidden
@@ -61,13 +69,17 @@ export default function About() {
             />
 
             {/* Floating credential card */}
-            <div className="absolute -bottom-6 left-4 z-20 flex items-center gap-3 rounded-sm border border-border bg-card/90 px-5 py-3 shadow-xl shadow-black/40 backdrop-blur-sm sm:-left-6">
+            <Float
+              amplitude={6}
+              duration={5}
+              className="absolute -bottom-6 left-4 z-20 flex items-center gap-3 rounded-sm border border-border bg-card/90 px-5 py-3 shadow-xl shadow-black/40 backdrop-blur-sm sm:-left-6"
+            >
               <p className="text-3xl font-light text-accent">2026</p>
               <p className="max-w-28 text-xs uppercase leading-snug tracking-[0.15em] text-muted">
                 Telly Awards Judging Council
               </p>
-            </div>
-          </div>
+            </Float>
+          </TiltCard>
         </Reveal>
 
         {/* Copy */}
@@ -77,15 +89,7 @@ export default function About() {
             <h2 className="mt-6 text-4xl font-light leading-tight sm:text-5xl">
               One storyteller,
               <br />
-              <span
-                className="bg-clip-text italic text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(110deg, var(--accent), #fff5dc 50%, var(--accent-strong))",
-                }}
-              >
-                many frontiers.
-              </span>
+              <ShimmerText className="italic">many frontiers.</ShimmerText>
             </h2>
           </Reveal>
 

@@ -1,5 +1,14 @@
 import { CornerFrame, Eyebrow } from "../shared";
-import { AmbientGlow, Reveal, Stagger, StaggerItem } from "../shared/motion";
+import {
+  AmbientGlow,
+  Float,
+  FloatingMotes,
+  Reveal,
+  ShimmerText,
+  Stagger,
+  StaggerItem,
+  TiltCard,
+} from "../shared/motion";
 
 const CONTACTS = [
   {
@@ -71,21 +80,14 @@ export default function Booking() {
 
       {/* Cinematic gold glow backdrop */}
       <AmbientGlow className="h-168 w-2xl" />
+      <FloatingMotes count={8} />
 
       <Reveal>
         <Eyebrow>Booking Inquiry</Eyebrow>
         <h2 className="mt-10 text-5xl font-light sm:text-7xl">
           Bring Esha to your
           <br />
-          <span
-            className="bg-clip-text italic text-transparent"
-            style={{
-              backgroundImage:
-                "linear-gradient(110deg, var(--accent), #fff5dc 50%, var(--accent-strong))",
-            }}
-          >
-            stage, anywhere.
-          </span>
+          <ShimmerText className="italic">stage, anywhere.</ShimmerText>
         </h2>
       </Reveal>
 
@@ -122,30 +124,37 @@ export default function Booking() {
       </Reveal>
 
       <Stagger className="mt-14 grid w-full max-w-5xl gap-5 sm:grid-cols-3">
-        {CONTACTS.map((c) => (
-          <StaggerItem key={c.value}>
-            <a
-              href={c.href}
-              className="group relative flex h-full flex-col items-center gap-3 overflow-hidden rounded-sm border border-border bg-card/40 p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:bg-card/70 hover:shadow-2xl hover:shadow-accent/5"
-            >
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/15 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-              />
-              <span className="relative flex h-11 w-11 items-center justify-center rounded-full border border-accent/40 text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10">
-                {c.icon}
-              </span>
-              <span className="relative text-xs uppercase tracking-[0.2em] text-muted">
-                {c.label}
-              </span>
-              <span className="relative wrap-anywhere text-[0.8125rem] text-accent transition-opacity group-hover:opacity-90">
-                {c.value}
-              </span>
-            </a>
+        {CONTACTS.map((c, i) => (
+          <StaggerItem key={c.value} className="h-full">
+            <TiltCard className="group h-full" max={6}>
+              <a
+                href={c.href}
+                className="relative flex h-full flex-col items-center gap-3 overflow-hidden rounded-sm border border-border bg-card/40 p-7 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:bg-card/70 hover:shadow-2xl hover:shadow-accent/5"
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/15 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                />
+                <Float
+                  amplitude={5}
+                  duration={5}
+                  delay={i * 0.4}
+                  className="relative flex h-11 w-11 items-center justify-center rounded-full border border-accent/40 text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10"
+                >
+                  {c.icon}
+                </Float>
+                <span className="relative text-xs uppercase tracking-[0.2em] text-muted">
+                  {c.label}
+                </span>
+                <span className="relative wrap-anywhere text-[0.8125rem] text-accent transition-opacity group-hover:opacity-90">
+                  {c.value}
+                </span>
+              </a>
+            </TiltCard>
           </StaggerItem>
         ))}
       </Stagger>

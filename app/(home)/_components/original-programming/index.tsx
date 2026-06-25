@@ -1,5 +1,12 @@
 import { CornerFrame, Eyebrow } from "../shared";
-import { AmbientGlow, Reveal } from "../shared/motion";
+import {
+  AmbientGlow,
+  Float,
+  FloatingMotes,
+  LightSweep,
+  Reveal,
+  ShimmerText,
+} from "../shared/motion";
 
 const TOPICS = ["Craft", "Tools", "The Road Ahead"];
 
@@ -9,6 +16,8 @@ export default function OriginalProgramming() {
     <section className="relative flex w-full flex-col items-center justify-center overflow-hidden px-6 py-36 text-center">
       <CornerFrame />
       <AmbientGlow className="h-112 w-md" />
+      <FloatingMotes count={8} />
+      <LightSweep duration={9} />
 
       <Reveal>
         <Eyebrow>Original Programming</Eyebrow>
@@ -16,7 +25,15 @@ export default function OriginalProgramming() {
 
       {/* Play-button motif */}
       <Reveal delay={0.05}>
-        <div className="relative mt-10 flex items-center justify-center">
+        <Float
+          amplitude={6}
+          duration={4.5}
+          className="relative mt-10 flex items-center justify-center"
+        >
+          <span
+            aria-hidden
+            className="absolute h-28 w-28 animate-[spin_18s_linear_infinite] rounded-full border border-dashed border-accent/30"
+          />
           <span
             aria-hidden
             className="absolute h-20 w-20 animate-ping rounded-full border border-accent/30 [animation-duration:2.5s]"
@@ -31,21 +48,13 @@ export default function OriginalProgramming() {
               <path d="M8 5v14l11-7L8 5Z" />
             </svg>
           </span>
-        </div>
+        </Float>
       </Reveal>
 
       <Reveal delay={0.1}>
         <h2 className="mt-10 text-4xl font-light sm:text-6xl">
           Creator of{" "}
-          <span
-            className="bg-clip-text italic text-transparent"
-            style={{
-              backgroundImage:
-                "linear-gradient(110deg, var(--accent), #fff5dc 50%, var(--accent-strong))",
-            }}
-          >
-            AI Meets Cinema™
-          </span>
+          <ShimmerText className="italic">AI Meets Cinema™</ShimmerText>
         </h2>
       </Reveal>
 

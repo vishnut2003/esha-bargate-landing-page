@@ -1,5 +1,14 @@
 import { Eyebrow, Section } from "../shared";
-import { AmbientGlow, Reveal, Stagger, StaggerItem } from "../shared/motion";
+import {
+  AmbientGlow,
+  FloatingMotes,
+  FlowingLine,
+  PulseDot,
+  Reveal,
+  ShimmerText,
+  Stagger,
+  StaggerItem,
+} from "../shared/motion";
 
 const MILESTONES = [
   {
@@ -39,36 +48,29 @@ export default function TrackRecord() {
   return (
     <Section className="overflow-hidden">
       <AmbientGlow className="h-112 w-2xl" />
+      <FloatingMotes count={6} />
 
       <Reveal className="text-center">
         <Eyebrow>Track Record</Eyebrow>
         <h2 className="mt-6 text-4xl font-light sm:text-5xl">
           Leadership and{" "}
-          <span
-            className="bg-clip-text italic text-transparent"
-            style={{
-              backgroundImage:
-                "linear-gradient(110deg, var(--accent), #fff5dc 50%, var(--accent-strong))",
-            }}
-          >
-            Achievement
-          </span>
+          <ShimmerText className="italic">Achievement</ShimmerText>
         </h2>
       </Reveal>
 
       <div className="relative mx-auto mt-16 max-w-3xl">
-        {/* Gradient timeline spine */}
-        <span
-          aria-hidden
-          className="absolute bottom-2 left-1.75 top-2 w-px bg-linear-to-b from-accent via-accent/40 to-transparent"
+        {/* Flowing timeline spine */}
+        <FlowingLine
+          vertical
+          className="absolute bottom-2 left-1.75 top-2 w-px"
         />
         <Stagger className="space-y-10">
-          {MILESTONES.map((item) => (
+          {MILESTONES.map((item, i) => (
             <StaggerItem key={item.title} className="group relative pl-12">
-              {/* Glowing node */}
-              <span
-                aria-hidden
-                className="absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border border-accent bg-background transition-all duration-300 group-hover:bg-accent group-hover:shadow-[0_0_12px_2px_var(--accent)]"
+              {/* Pulsing node */}
+              <PulseDot
+                delay={i * 0.3}
+                className="absolute left-0 top-1.5 h-3.5 w-3.5"
               />
               <div className="flex items-center gap-3">
                 <span className="rounded-full border border-border px-3 py-1 text-[0.65rem] uppercase tracking-[0.15em] text-muted transition-colors duration-300 group-hover:border-accent/50 group-hover:text-accent">

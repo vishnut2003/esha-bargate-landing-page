@@ -1,5 +1,14 @@
 import { Eyebrow, Section } from "../shared";
-import { AmbientGlow, Reveal, Stagger, StaggerItem } from "../shared/motion";
+import {
+  AmbientGlow,
+  Float,
+  LightSweep,
+  Reveal,
+  ShimmerText,
+  Stagger,
+  StaggerItem,
+  TiltCard,
+} from "../shared/motion";
 
 const svgProps = {
   viewBox: "0 0 24 24",
@@ -52,53 +61,52 @@ export default function Recognition() {
   return (
     <Section className="overflow-hidden">
       <AmbientGlow className="h-112 w-2xl" />
+      <LightSweep duration={8} delay={2} />
 
       <Reveal className="text-center">
         <Eyebrow>Recognition</Eyebrow>
         <h2 className="mt-6 text-4xl font-light sm:text-5xl">
-          Featured &{" "}
-          <span
-            className="bg-clip-text italic text-transparent"
-            style={{
-              backgroundImage:
-                "linear-gradient(110deg, var(--accent), #fff5dc 50%, var(--accent-strong))",
-            }}
-          >
-            awarded
-          </span>
+          Featured & <ShimmerText className="italic">awarded</ShimmerText>
         </h2>
       </Reveal>
 
       <Stagger className="mt-14 grid gap-6 lg:grid-cols-3">
-        {ITEMS.map((item) => (
+        {ITEMS.map((item, i) => (
           <StaggerItem key={item.title} className="h-full">
-            <article className="group relative flex h-full flex-col overflow-hidden rounded-sm border border-border bg-card/40 p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:bg-card/70 hover:shadow-2xl hover:shadow-accent/5">
-              {/* Corner glow + top accent on hover */}
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/15 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-              />
+            <TiltCard className="group h-full" max={6}>
+              <article className="relative flex h-full flex-col overflow-hidden rounded-sm border border-border bg-card/40 p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:bg-card/70 hover:shadow-2xl hover:shadow-accent/5">
+                {/* Corner glow + top accent on hover */}
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/15 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                />
 
-              <div className="relative flex items-center justify-between">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                  {item.tag}
+                <div className="relative flex items-center justify-between">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    {item.tag}
+                  </p>
+                  <Float
+                    amplitude={5}
+                    duration={5}
+                    delay={i * 0.4}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/30 text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10"
+                  >
+                    {item.icon}
+                  </Float>
+                </div>
+
+                <h3 className="relative mt-6 text-2xl font-normal transition-colors duration-300 group-hover:text-accent">
+                  {item.title}
+                </h3>
+                <p className="relative mt-4 leading-relaxed text-muted">
+                  {item.body}
                 </p>
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-accent/30 text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10">
-                  {item.icon}
-                </span>
-              </div>
-
-              <h3 className="relative mt-6 text-2xl font-normal transition-colors duration-300 group-hover:text-accent">
-                {item.title}
-              </h3>
-              <p className="relative mt-4 leading-relaxed text-muted">
-                {item.body}
-              </p>
-            </article>
+              </article>
+            </TiltCard>
           </StaggerItem>
         ))}
       </Stagger>

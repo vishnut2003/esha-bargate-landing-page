@@ -1,11 +1,22 @@
 import { Eyebrow, Section } from "../shared";
-import { AmbientGlow, Reveal, Stagger, StaggerItem } from "../shared/motion";
+import {
+  AmbientGlow,
+  CountUp,
+  Float,
+  LightSweep,
+  Reveal,
+  ShimmerText,
+  Stagger,
+  StaggerItem,
+  TiltCard,
+} from "../shared/motion";
 
 const iconClass = "h-5 w-5";
 
 const STATS = [
   {
     stat: "6",
+    value: 6,
     label: "Continents Connected",
     icon: (
       <svg
@@ -25,6 +36,7 @@ const STATS = [
   },
   {
     stat: "2026",
+    value: 2026,
     label: "Telly Awards Judge",
     icon: (
       <svg
@@ -46,6 +58,7 @@ const STATS = [
   },
   {
     stat: "SB100",
+    value: null,
     label: "Business Visionary",
     icon: (
       <svg
@@ -63,6 +76,7 @@ const STATS = [
   },
   {
     stat: "2",
+    value: 2,
     label: "Streaming Platforms",
     icon: (
       <svg
@@ -86,20 +100,12 @@ export default function AtAGlance() {
   return (
     <Section className="overflow-hidden">
       <AmbientGlow className="h-112 w-2xl" />
+      <LightSweep duration={8} />
 
       <Reveal className="text-center">
         <Eyebrow>At a Glance</Eyebrow>
         <h2 className="mt-6 text-4xl font-light sm:text-5xl">
-          A career of{" "}
-          <span
-            className="bg-clip-text italic text-transparent"
-            style={{
-              backgroundImage:
-                "linear-gradient(110deg, var(--accent), #fff5dc 50%, var(--accent-strong))",
-            }}
-          >
-            firsts
-          </span>
+          A career of <ShimmerText className="italic">firsts</ShimmerText>
         </h2>
 
         {/* Divider flourish */}
@@ -119,39 +125,50 @@ export default function AtAGlance() {
       </Reveal>
 
       <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {STATS.map((item) => (
+        {STATS.map((item, i) => (
           <StaggerItem key={item.label}>
-            <div className="group relative h-full overflow-hidden rounded-sm border border-border bg-card/40 px-6 py-12 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:bg-card/70 hover:shadow-2xl hover:shadow-accent/5">
-              {/* Top accent line, revealed on hover */}
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              />
-              {/* Corner glow on hover */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-accent/15 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-              />
+            <TiltCard className="group h-full">
+              <div className="relative h-full overflow-hidden rounded-sm border border-border bg-card/40 px-6 py-12 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:bg-card/70 hover:shadow-2xl hover:shadow-accent/5">
+                {/* Top accent line, revealed on hover */}
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                {/* Corner glow on hover */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-accent/15 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                />
 
-              {/* Icon badge */}
-              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-accent/30 text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10">
-                {item.icon}
-              </span>
+                {/* Icon badge */}
+                <Float
+                  amplitude={6}
+                  duration={5}
+                  delay={i * 0.4}
+                  className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-accent/30 text-accent transition-colors duration-300 group-hover:border-accent group-hover:bg-accent/10"
+                >
+                  {item.icon}
+                </Float>
 
-              {/* Stat */}
-              <p
-                className="mt-6 bg-clip-text text-5xl font-light text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(160deg, var(--accent-strong), var(--accent) 60%, #b88a32)",
-                }}
-              >
-                {item.stat}
-              </p>
-              <p className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">
-                {item.label}
-              </p>
-            </div>
+                {/* Stat */}
+                <p
+                  className="mt-6 bg-clip-text text-5xl font-light text-transparent"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(160deg, var(--accent-strong), var(--accent) 60%, #b88a32)",
+                  }}
+                >
+                  {item.value === null ? (
+                    item.stat
+                  ) : (
+                    <CountUp value={item.value} />
+                  )}
+                </p>
+                <p className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">
+                  {item.label}
+                </p>
+              </div>
+            </TiltCard>
           </StaggerItem>
         ))}
       </Stagger>

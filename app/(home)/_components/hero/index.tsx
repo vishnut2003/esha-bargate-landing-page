@@ -245,7 +245,7 @@ export default function Hero() {
         transition={{ duration: 1.4, delay: 0.8, ease: EASE }}
         className="absolute left-12 top-1/2 hidden -translate-y-1/2 -rotate-90 text-[0.625rem] uppercase tracking-[0.4em] text-muted/60 lg:block"
       >
-        Esha Bargate Productions
+        Film · Media · Innovation
       </motion.span>
       <motion.span
         aria-hidden

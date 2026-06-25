@@ -10,7 +10,13 @@ import {
   useTransform,
   type Variants,
 } from "framer-motion";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 
 /** Cinematic ease — a soft, confident decelerating curve. */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -309,6 +315,19 @@ export function CountUp({
   );
 }
 
+/** Subscribes to whether the device has a fine pointer (mouse/trackpad). */
+function usePointerFine() {
+  return useSyncExternalStore(
+    (onChange) => {
+      const mq = window.matchMedia("(pointer: fine)");
+      mq.addEventListener("change", onChange);
+      return () => mq.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia("(pointer: fine)").matches,
+    () => false,
+  );
+}
+
 /**
  * Pointer-interactive card: subtle 3D tilt plus a radial spotlight that
  * follows the cursor. Falls back to a plain wrapper under reduced motion or on
@@ -324,14 +343,9 @@ export function TiltCard({
   max?: number;
 }) {
   const reduce = useReducedMotion();
-  const [enabled, setEnabled] = useState(false);
+  const pointerFine = usePointerFine();
+  const enabled = pointerFine && !reduce;
   const [hovered, setHovered] = useState(false);
-
-  // Only enable on devices with a fine pointer (mouse/trackpad).
-  useEffect(() => {
-    if (reduce) return;
-    setEnabled(window.matchMedia("(pointer: fine)").matches);
-  }, [reduce]);
 
   const rx = useMotionValue(0);
   const ry = useMotionValue(0);

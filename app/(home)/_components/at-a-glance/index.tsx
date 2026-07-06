@@ -15,26 +15,6 @@ const iconClass = "h-5 w-5";
 
 const STATS = [
   {
-    stat: "6",
-    value: 6,
-    label: "Continents Connected",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={iconClass}
-      >
-        <circle cx="12" cy="12" r="9" />
-        <path d="M3 12h18" />
-        <path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z" />
-      </svg>
-    ),
-  },
-  {
     stat: "2026",
     value: 2026,
     label: "Telly Awards Judge",
@@ -124,7 +104,7 @@ export default function AtAGlance() {
         </div>
       </Reveal>
 
-      <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {STATS.map((item, i) => (
           <StaggerItem key={item.label}>
             <TiltCard className="group h-full">

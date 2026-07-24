@@ -29,7 +29,7 @@ const MILESTONES = [
   {
     meta: "2025",
     title: "Best of Small Business Awards",
-    body: "Named a Business Visionary — honored with the distinguished SB100 Award.",
+    body: "Named a Business Visionary — AIVR MPG honored with the distinguished SB100 Award.",
   },
   {
     meta: "Nonprofit",

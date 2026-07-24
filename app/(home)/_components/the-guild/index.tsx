@@ -21,7 +21,7 @@ const MILESTONES = [
   },
   {
     title: "SB100 · Business Visionary Recognition",
-    body: "Honored in the 2025 Best of Small Business Awards by Small Business Expo.",
+    body: "AIVR MPG Honored in the 2025 Best SB 100 Awards by Small Business",
   },
   {
     title: "USA × Africa Partnership",

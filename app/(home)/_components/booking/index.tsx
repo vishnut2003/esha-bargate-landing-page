@@ -69,7 +69,7 @@ const CONTACTS = [
   },
 ];
 
-/** 11 — Booking Inquiry */
+/** 12 — Booking Inquiry */
 export default function Booking() {
   return (
     <section

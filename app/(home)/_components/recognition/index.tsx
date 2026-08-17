@@ -56,7 +56,7 @@ const ITEMS = [
   },
 ];
 
-/** 09 — Recognition */
+/** 10 — Recognition */
 export default function Recognition() {
   return (
     <Section className="overflow-hidden">

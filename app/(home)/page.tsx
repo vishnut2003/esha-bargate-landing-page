@@ -4,6 +4,7 @@ import About from "./_components/about";
 import AtAGlance from "./_components/at-a-glance";
 import SignatureTalks from "./_components/signature-talks";
 import WaysToInvite from "./_components/ways-to-invite";
+import RecentSessions from "./_components/recent-sessions";
 import TrackRecord from "./_components/track-record";
 import TheGuild from "./_components/the-guild";
 import TheStudio from "./_components/the-studio";
@@ -20,6 +21,7 @@ export default function Home() {
       <AtAGlance />
       <SignatureTalks />
       <WaysToInvite />
+      <RecentSessions />
       <TrackRecord />
       <TheGuild />
       <TheStudio />

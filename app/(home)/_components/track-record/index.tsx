@@ -43,7 +43,7 @@ const MILESTONES = [
   },
 ];
 
-/** 06 — Track Record */
+/** 07 — Track Record */
 export default function TrackRecord() {
   return (
     <Section className="overflow-hidden">

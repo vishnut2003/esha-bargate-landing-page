@@ -29,7 +29,7 @@ const MILESTONES = [
   },
 ];
 
-/** 07 — The Guild */
+/** 08 — The Guild */
 export default function TheGuild() {
   return (
     <Section className="overflow-hidden">

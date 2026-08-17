@@ -25,7 +25,7 @@ const SIGNATURE_WORK = [
   },
 ];
 
-/** 08 — The Studio */
+/** 09 — The Studio */
 export default function TheStudio() {
   return (
     <Section className="overflow-hidden">

@@ -1,4 +1,3 @@
-import Preloader from "./_components/preloader";
 import Hero from "./_components/hero";
 import About from "./_components/about";
 import AtAGlance from "./_components/at-a-glance";
@@ -15,7 +14,6 @@ import Booking from "./_components/booking";
 export default function Home() {
   return (
     <main className="w-full bg-background text-foreground">
-      <Preloader />
       <Hero />
       <About />
       <AtAGlance />

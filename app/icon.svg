@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Esha Bargate</title>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2c485" />
+      <stop offset="0.55" stop-color="#c9a24b" />
+      <stop offset="1" stop-color="#b08a38" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#c9a24b" stop-opacity="0.2" />
+      <stop offset="1" stop-color="#c9a24b" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Near-black cinematic backdrop with a faint gold bloom -->
+  <rect width="64" height="64" rx="14" fill="#0d0b08" />
+  <rect width="64" height="64" rx="14" fill="url(#glow)" />
+
+  <!-- "EB" monogram, drawn as paths so it renders identically everywhere -->
+  <g
+    fill="none"
+    stroke="url(#gold)"
+    stroke-width="5"
+    stroke-linecap="butt"
+    stroke-linejoin="miter"
+  >
+    <path d="M27.5 19H14.5V45H27.5M14.5 32H25.5" />
+    <path d="M36 32H42a6.5 6.5 0 0 0 0-13H36V45H43.5a6.5 6.5 0 0 0 0-13H36" />
+  </g>
+</svg>
